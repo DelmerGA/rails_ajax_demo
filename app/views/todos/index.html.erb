@@ -1,0 +1,25 @@
+<h1> Todos </h1>
+<%= form_for @todo, remote: true do |f|  %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div>
+		<%= f.label :completed %>
+		<%= f.check_box :completed %>
+	</div>
+	<%= f.submit %>
+<% end %>
+
+<div id="todos_all">
+	<% @todos.each do |todo| %>
+		<%= render todo %>
+	<% end %>
+</div>
+
+<%= javascript_tag do %>
+	$('#todos_all').on("click", "li a[data-method='delete']", function(event){
+	$(this).parent().remove();
+})
+<% end %>

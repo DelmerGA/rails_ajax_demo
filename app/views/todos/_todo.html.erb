@@ -1,0 +1,5 @@
+<li data-id="<%= todo.id %>">
+	<%= todo.name %>
+	<%= link_to "Delete", todo, :method => :delete, remote: true %>
+
+</li>

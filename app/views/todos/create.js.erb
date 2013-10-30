@@ -1,0 +1,7 @@
+var something = <%= params.to_json.html_safe %>;
+
+alert(something);
+
+
+$my_item = $("<%= escape_javascript(render @todo) %>");
+$("#todos_all").append($my_item);
